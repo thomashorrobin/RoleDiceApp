@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RoleDiceApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="WelcomeMessage">Welcome to Risk Roll, to begin, enter number of attacking and defending peaces. And then either \"Roll once\" or \"Roll to end\"</string>
+
+</resources>
