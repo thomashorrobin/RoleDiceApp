@@ -46,7 +46,7 @@ public class RollDiceActivity extends ActionBarActivity {
             InitiateAttack(Integer.parseInt(defenceEditText.getText().toString()),Integer.parseInt(attackEditText.getText().toString()));
         }
         if (attackInstance.CanAttack()){
-            attackInstance.Roll();
+            attackInstance.Roll(3,2);
         }
     }
 
@@ -54,9 +54,9 @@ public class RollDiceActivity extends ActionBarActivity {
         if ( attackInstance == null){
             InitiateAttack(Integer.parseInt(defenceEditText.getText().toString()),Integer.parseInt(attackEditText.getText().toString()));
         }
-//        while (attackInstance.CanAttack()){
-//            attackInstance.Roll();
-//        }
+        while (attackInstance.CanAttack()){
+            attackInstance.Roll(3,2);
+        }
     }
 
     private void InitiateAttack(int defencePlayers, int attackPlayers){
@@ -74,7 +74,7 @@ public class RollDiceActivity extends ActionBarActivity {
         scrollView.post(new Runnable() {
             @Override
             public void run() {
-                
+                scrollView.smoothScrollTo(0,outputTextArea.getBottom());
             }
         });
     }

@@ -25,16 +25,19 @@ public class AttackInstance {
         rollDiceActivity.PrintToActivity("Attacking players: " + Integer.toString(AttackingPlayers) + " Defending players: " + Integer.toString(DefendingPlayers));
     }
 
-    public void Roll(){
+    public void Roll(int NumberOfPlayersAttacking, int NumberOfPlayersDefending){
+        if (AttackingPlayers < NumberOfPlayersAttacking){
+            NumberOfPlayersAttacking = AttackingPlayers;
+        }
         a1 = rollDiceActivity.NextDiceRoll();
         a2 = rollDiceActivity.NextDiceRoll();
         a3 = rollDiceActivity.NextDiceRoll();
         d1 = rollDiceActivity.NextDiceRoll();
         d2 = rollDiceActivity.NextDiceRoll();
-        SortDice();
+        SortDice(NumberOfPlayersAttacking,NumberOfPlayersDefending);
         rollDiceActivity.PrintToActivity("Attack rolled: " + Integer.toString(a1) + ", " + Integer.toString(a2) + ", " + Integer.toString(a3));
         rollDiceActivity.PrintToActivity("Defence rolled: " + Integer.toString(d1) + ", " + Integer.toString(d2));
-        CompareDice();
+        CompareDice(NumberOfPlayersAttacking,NumberOfPlayersDefending);
         PrintPlayersLeft();
     }
 
@@ -46,7 +49,7 @@ public class AttackInstance {
         }
     }
 
-    private void CompareDice(){
+    private void CompareDice(int NumberOfPlayersAttacking, int NumberOfPlayersDefending){
         int attackToLose = 0;
         int defenceToLose = 0;
         if (a1 > d1){
@@ -54,10 +57,12 @@ public class AttackInstance {
         } else {
             attackToLose++;
         }
-        if (a2 > d2){
-            defenceToLose++;
-        } else {
-            attackToLose++;
+        if (NumberOfPlayersAttacking > 1 && NumberOfPlayersDefending > 1) {
+            if (a2 > d2) {
+                defenceToLose++;
+            } else {
+                attackToLose++;
+            }
         }
         if(attackToLose > 0){
             rollDiceActivity.PrintToActivity("Attack to lose " + Integer.toString(attackToLose));
@@ -69,23 +74,23 @@ public class AttackInstance {
         DefendingPlayers -= defenceToLose;
     }
 
-    private void SortDice(){
-        if (d1 < d2){
+    private void SortDice(int NumberOfPlayersAttacking, int NumberOfPlayersDefending){
+        if (NumberOfPlayersDefending >= 2 && d1 < d2){
             int i = d1;
             d1 = d2;
             d2 = i;
         }
-        if (a2 < a3){
+        if (NumberOfPlayersAttacking > 2 && a2 < a3){
             int i = a2;
             a2 = a3;
             a3 = i;
         }
-        if (a1 < a2){
+        if (NumberOfPlayersAttacking >= 2 && a1 < a2){
             int i = a1;
             a1 = a2;
             a2 = i;
         }
-        if (a2 < a3){
+        if (NumberOfPlayersAttacking > 2 && a2 < a3){
             int i = a2;
             a2 = a3;
             a3 = i;
