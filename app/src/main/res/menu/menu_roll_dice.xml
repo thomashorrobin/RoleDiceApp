@@ -1,6 +1,35 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".RollDiceActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".RollDiceActivity">
+    <item
+        android:id="@+id/rateThisApp"
+        android:title="@string/rate"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/setAttackTo3"
+        android:title="Set attack to 3"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/setAttackTo2"
+        android:title="Set attack to 2"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/setAttackTo1"
+        android:title="Set attack to 1"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/setDefenceTo2"
+        android:title="Set defence to 2"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/setDefenceTo1"
+        android:title="Set defence to 1"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
 </menu>

@@ -1,4 +1,4 @@
-package com.example.thomas.rolediceapp;
+package com.tomhorrobinapps.thomas.rolldiceapp;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
